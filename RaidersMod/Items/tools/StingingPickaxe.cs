@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace RaidersMod.Items.tools
+namespace RaidersMod.RaidersMod.Items.tools
 {
 	public class StingingPickaxe : ModItem
 	{
