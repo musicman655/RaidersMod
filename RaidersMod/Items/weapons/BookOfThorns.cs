@@ -28,7 +28,7 @@ namespace RaidersMod.Items.weapons
             item.mana = 5;             //mana use
             item.UseSound = SoundID.Item21;            //this is the sound when you use the item
             item.autoReuse = true;
-            item.shoot = mod.ProjectileType ("SpikeySpike");   //this make the item shoot your projectile
+            item.shoot = ProjectileID.PoisonDart;   //this make the item shoot your projectile
             item.shootSpeed = 8f;    //projectile speed when shoot
         }      
     }
