@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace RaidersMod.RaidersMod.Items.accessories
+namespace RaidersMod.Items.accessories
 {
     public class GiftOfTheJungle : ModItem
     {
