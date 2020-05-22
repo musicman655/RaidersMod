@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace RaidersMod.Items.weapons
+namespace RaidersMod.RaidersMod.Items.weapons
 {
 	public class StingingSword : ModItem
 	{
