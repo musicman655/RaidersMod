@@ -1,6 +1,6 @@
 using Terraria.ModLoader;
 
-namespace RaidersMod.RaidersMod
+namespace RaidersMod
 {
 	public class RaidersMod : Mod
 	{
