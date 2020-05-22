@@ -1,3 +1,0 @@
-displayName = RaidersMod
-author = the fogotten yogurt
-version = 0.0.2
