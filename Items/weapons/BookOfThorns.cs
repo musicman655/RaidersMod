@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
  
-namespace RaidersMod.RaidersMod.Items.weapons
+namespace RaidersMod.Items.weapons
 {
     public class BookOfThorns : ModItem
     {
