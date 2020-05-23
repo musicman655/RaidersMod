@@ -18,8 +18,8 @@ namespace RaidersMod.Items.weapons
 			item.melee = true;
 			item.width = 32;
 			item.height = 32;
-			item.useTime = 8;
-			item.useAnimation = 8;
+			item.useTime = 12;
+			item.useAnimation = 12;
 			item.useStyle = 1;
 			item.knockBack = 1;
 			item.value = Item.buyPrice(0, 0, 78, 0);
