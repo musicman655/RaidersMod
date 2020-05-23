@@ -11,8 +11,8 @@ namespace RaidersMod.Items.tools
 			item.damage = 10;
 			item.width = 32;
 			item.height = 32;
-			item.useTime = 6;
-			item.useAnimation = 12;
+			item.useTime = 8;
+			item.useAnimation = 16;
 			item.useStyle = 1;
 			item.knockBack = 3.25f;
 			item.value = Item.buyPrice(0, 0, 85, 0);
