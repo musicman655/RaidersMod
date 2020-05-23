@@ -22,12 +22,13 @@ namespace RaidersMod.Items.armor
         
         public override bool IsArmorSet(Item head, Item body, Item legs)
         {
-            return head.type == ItemType<PlanitiumChest>() && legs.type == ItemType<PlanitiumLeggings>();
+            return body.type == ItemType<PlanitiumChest>() && legs.type == ItemType<PlanitiumLeggings>();
         }
         public override void UpdateArmorSet(Player player)
         {
             player.buffImmune[BuffID.Poisoned] = true;
             player.statDefense += 3;
+            player.setBonus = "Immune to Poisened\n        +3 Defense";
         }
         public override void AddRecipes()
         {
