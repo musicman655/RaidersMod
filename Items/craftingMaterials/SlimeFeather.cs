@@ -15,7 +15,7 @@ namespace RaidersMod.Items.craftingMaterials
             item.Size = new Microsoft.Xna.Framework.Vector2(20);
             item.material = true;
             item.maxStack = 99;
-            item.damage = 53;
+            item.damage = 25;
             item.consumable = true;
             item.rare = ItemRarityID.LightRed;
             item.shoot = ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
