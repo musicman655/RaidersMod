@@ -29,6 +29,7 @@ namespace RaidersMod.Items.weapons
             item.width = 25;
             item.height = 14;
             item.scale *= 1.5f;
+            item.useAmmo = ModContent.ItemType<Items.craftingMaterials.SlimeFeather>();
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
