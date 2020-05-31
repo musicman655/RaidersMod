@@ -17,7 +17,7 @@ namespace RaidersMod.Items.craftingMaterials
             item.damage = 53;
             item.consumable = true;
             item.rare = ItemRarityID.LightRed;
-            item.shoot = ProjectileType<Items.projectiles.SlimeFeather_Projectile>(); 
+            item.shoot = ModContent.ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
             item.value = 100;
             item.shootSpeed = 10f;
             item.ammo = AmmoID.None;
