@@ -14,13 +14,13 @@ namespace RaidersMod.Items.projectiles
         {
             projectile.Size = new Microsoft.Xna.Framework.Vector2(15);
             projectile.scale *= 0.7f;
-            projectile.damage = 54;
+            projectile.damage = 25;
             projectile.knockBack = 1;
             projectile.aiStyle = -1;
             projectile.tileCollide = true;
             projectile.timeLeft = 1200;
             projectile.ignoreWater = false;
-            projectile.penetrate = 3;
+            projectile.penetrate = 2;
             projectile.ranged = true;
             projectile.friendly = true;
             
