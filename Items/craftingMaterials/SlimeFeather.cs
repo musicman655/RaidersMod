@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
 namespace RaidersMod.Items.craftingMaterials
 {
     public class SlimeFeather : ModItem
@@ -17,7 +18,7 @@ namespace RaidersMod.Items.craftingMaterials
             item.damage = 53;
             item.consumable = true;
             item.rare = ItemRarityID.LightRed;
-            item.shoot = ModContent.ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
+            item.shoot = ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
             item.value = 100;
             item.shootSpeed = 10f;
             item.ammo = AmmoID.None;
