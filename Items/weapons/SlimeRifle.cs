@@ -17,7 +17,6 @@ namespace RaidersMod.Items.weapons
             item.noMelee = true;
             item.damage = 56;
             item.knockBack = 1f;
-            item.shoot = ModContent.ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
             item.maxStack = 1;
             item.shootSpeed = 15;
             item.value = Item.buyPrice(0,1,20,0);
@@ -30,6 +29,7 @@ namespace RaidersMod.Items.weapons
             item.height = 14;
             item.scale *= 1.5f;
             item.useAmmo = ModContent.ItemType<Items.craftingMaterials.SlimeFeather>();
+            item.shoot = 10;
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         {
