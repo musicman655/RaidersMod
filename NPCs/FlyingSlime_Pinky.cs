@@ -16,7 +16,7 @@ namespace RaidersMod.NPCs.Spiker
         {
             npc.lifeMax = Main.expertMode ? 500 : 250;
             npc.defense = Main.expertMode ? 25 : 15;
-            npc.knockBackResist = 0.15f;
+            npc.knockBackResist = 1f;
             npc.width = 20;
             npc.height = 24;
             npc.dontTakeDamageFromHostiles = true;
