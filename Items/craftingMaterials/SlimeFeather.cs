@@ -21,7 +21,7 @@ namespace RaidersMod.Items.craftingMaterials
             item.value = 100;
             item.shootSpeed = 10f;
             item.ammo = AmmoID.None;
-            item.knockback = 1f;
+            item.knockBack = 1f;
         }
         
     }
