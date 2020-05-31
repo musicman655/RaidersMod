@@ -10,7 +10,7 @@ namespace RaidersMod.Items.tools
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Planitium Axe");
-            Tooltip.SetDefault("<Insert Tooltip Here>"); //yogurt idk what to put here so you do it
+            Tooltip.SetDefault("this axe is quite powerful from the jungle "); //Odin:yogurt idk what to put here so you do it.Yogurt:ok
         }
         public override void SetDefaults()
         {
