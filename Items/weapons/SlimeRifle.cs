@@ -15,7 +15,7 @@ namespace RaidersMod.Items.weapons
             item.ranged = true;
             item.autoReuse = true;
             item.noMelee = true;
-            item.damage = 56;
+            item.damage = 30;
             item.knockBack = 1f;
             item.maxStack = 1;
             item.shootSpeed = 15;
