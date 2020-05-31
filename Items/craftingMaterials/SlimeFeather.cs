@@ -21,7 +21,7 @@ namespace RaidersMod.Items.craftingMaterials
             item.shoot = ProjectileType<Items.projectiles.SlimeFeather_Projectile>();
             item.value = 100;
             item.shootSpeed = 10f;
-            item.ammo = AmmoID.None;
+            item.ammo = AmmoID.Gel;
             item.knockBack = 1f;
         }
         
