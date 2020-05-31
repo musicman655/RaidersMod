@@ -53,7 +53,7 @@ namespace RaidersMod.NPCs.Spiker
             }
             if(Attackcounter < 600)
             {
-                MoveTowards(npc,Main.player[npc.target].Center,6,0.02f);
+                MoveTowards(npc,Main.player[npc.target].Center,4.5f,0.02f);
                
             }
             Player target = Main.player[npc.target];
@@ -105,7 +105,11 @@ namespace RaidersMod.NPCs.Spiker
         else if (npc.frameCounter < 35)
         {
             npc.frame.Y = frame_state_4 * frameHeight;
-            npc.frameCounter = 0;
+            
+        }
+          else if (npc.frameCounter >=40)
+        {
+        npc.frameCounter = 0;
         }
        
     }
