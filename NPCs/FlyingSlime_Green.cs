@@ -52,7 +52,7 @@ namespace RaidersMod.NPCs
             }
             if (Attackcounter < 600)
             {
-                MoveTowards(npc,Main.player[npc.target].Center,4.2f.2f,0.02f);
+                MoveTowards(npc,Main.player[npc.target].Center,4.2f,0.02f);
                
             }
             Player target = Main.player[npc.target];
