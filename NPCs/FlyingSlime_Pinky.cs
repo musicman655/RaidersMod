@@ -14,13 +14,13 @@ namespace RaidersMod.NPCs.Spiker
         }
         public override void SetDefaults()
         {
-            npc.lifeMax = 300;
-            npc.defense = 20;
+            npc.lifeMax = Main.expertMode ? 500 : 250;
+            npc.defense = Main.expertMode ? 25 : 15;
             npc.knockBackResist = 0.15f;
             npc.width = 20;
             npc.height = 24;
             npc.dontTakeDamageFromHostiles = true;
-            npc.damage = 50;
+            npc.damage = Main.expertMode ? 150 : 50;
             npc.aiStyle = -1;
             npc.friendly = false;
             npc.HitSound = SoundID.NPCHit1;
