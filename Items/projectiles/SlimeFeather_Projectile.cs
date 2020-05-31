@@ -14,7 +14,7 @@ namespace RaidersMod.Items.projectiles
         {
             projectile.Size = new Microsoft.Xna.Framework.Vector2(15);
             projectile.scale *= 0.7f;
-            projectile.damage = 24;
+            projectile.damage = 54;
             projectile.knockBack = 1;
             projectile.aiStyle = -1;
             projectile.tileCollide = true;
@@ -22,12 +22,20 @@ namespace RaidersMod.Items.projectiles
             projectile.ignoreWater = false;
             projectile.penetrate = 3;
             projectile.ranged = true;
+            projectile.friendly = true;
+            
         }
         public override void AI()
         {
             projectile.velocity.X += 0.008f;
             projectile.rotation = projectile.velocity.ToRotation();
         }
-        
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if(!target.friendly)
+            {
+                target.AddBuff(BuffID.Slow,600,false);
+            }
+        }
     }
 }
