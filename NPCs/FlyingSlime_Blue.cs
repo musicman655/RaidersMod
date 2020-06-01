@@ -16,7 +16,7 @@ namespace RaidersMod.NPCs
         {
             npc.lifeMax = Main.expertMode ? 100 : 50;
             npc.defense = Main.expertMode ? 26 : 19;
-            npc.knockBackResist = 0.1f;
+            npc.knockBackResist = 0.015f;
             npc.width = 20;
             npc.height = 24;
             npc.dontTakeDamageFromHostiles = true;
