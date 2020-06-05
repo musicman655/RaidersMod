@@ -1,0 +1,3 @@
+displayName = Raiders Mod
+author = the fogotten yogurt
+version = 0.0.3
