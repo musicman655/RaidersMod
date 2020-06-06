@@ -7,8 +7,8 @@ namespace RaidersMod.Items.weapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime Rifle");
-            Tooltip.SetDefault("this shoots a bunch amount of slime feathers and is really fast"); //Odin:Yogurt insert the tooltip here cuz idk what to put.Yogurt:ok xdddddd
+            DisplayName.SetDefault("SlimeRifle");
+            Tooltip.SetDefault(""); //Yogurt insert the tooltip here cuz idk what to put
         }
         public override void SetDefaults()
         {

@@ -10,7 +10,7 @@ namespace RaidersMod.Items.tools
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Planitium Pickaxe");
-            Tooltip.SetDefault("a powerful pickaxe from the jungle");
+            Tooltip.SetDefault("<Insert tooltip here>");
         }
         public override void SetDefaults()
         {

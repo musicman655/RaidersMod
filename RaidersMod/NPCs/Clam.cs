@@ -16,7 +16,7 @@ namespace RaidersMod.NPCs
             npc.damage = 35;
             npc.aiStyle = 25;
             npc.friendly = false;
-            npc.HitSound = SoundID.NPCHit7;
+            npc.HitSound = SoundID.NPCHit48;
             npc.DeathSound = SoundID.NPCDeath1;
             animationType = NPCID.Mimic;
             npc.lifeMax = 200;
