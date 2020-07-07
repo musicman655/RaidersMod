@@ -9,7 +9,8 @@ namespace RaidersMod.Items.weapons
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Stinging Sword"); 
+			DisplayName.SetDefault("Stinging Sword");
+			Tooltip.SetDefault("a stingy sword"); 
 		}
 
 		public override void SetDefaults() 

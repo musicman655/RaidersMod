@@ -10,6 +10,7 @@ namespace RaidersMod.Items.weapons
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Coral Reef Sword"); 
+			Tooltip.SetDefault("the sword of the Coral sea");
 		}
 
 		public override void SetDefaults() 

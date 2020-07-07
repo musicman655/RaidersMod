@@ -37,89 +37,44 @@ namespace RaidersMod.NPCs.Spiker
             } else return 0f;
         }
 
-        private float Attackcounter
-        {
-            get => npc.ai[0];
-            set => npc.ai[0] = value;
-        }
+        private float Attackcounter;
         public override void AI()
         {
-            
             npc.TargetClosest(true);
-            
-            if(  npc.target < 0 || npc.target == 255 ||Main.player[npc.target].dead)
+            Attackcounter++;
+            Player player = Main.player[npc.target];
+            if(  npc.target < 0 || npc.target == 255 || player.dead)
             {
                 npc.TargetClosest(true);
             }
-            if(Attackcounter < 600)
+            npc.velocity = Vector2.Normalize(player.Center - npc.Center) * 4.4f;  
+
+            if(Attackcounter >= 360)
             {
-                MoveTowards(npc,Main.player[npc.target].Center,4.5f,0.02f);
-               
-            }
-            Player target = Main.player[npc.target];
-            
-            if(Attackcounter >= 600)
-            {
-                Vector2 direction = (target.Center - npc.Center).SafeNormalize(Vector2.UnitX);
-                Projectile.NewProjectile(npc.position,direction,ProjectileID.HarpyFeather,23,1f,npc.type,0,0);
+                Vector2 direction = Vector2.Normalize(player.Center - npc.Center) * 5f;
+                Projectile.NewProjectile(npc.Center,direction * 2,ProjectileID.HarpyFeather,23,1);
                 Attackcounter = 0f;
             }
-       
+            npc.spriteDirection = npc.direction;
         }
-    private void MoveTowards(NPC npc,Vector2 playerTarget,float speed,float turnResistence)
-    {
-        var move = playerTarget - npc.Center;
-        float length = move.Length();
-        if(length > speed)
-        {
-            move *= speed / length;
-        }
-        move = (npc.velocity * turnResistence + move) / (turnResistence + 1);
-        length = move.Length();
-        if(length > speed)
-        {
-            move *= speed / length;
-        }
-        npc.velocity = move;
-    } 
+        private int FrameTimer;
+        private int frameCount;
      public override void FindFrame(int frameHeight)
     {
-        int frame_State_1 = 0;
-        int frame_state_2 = 1;
-        int frame_state_3 = 2;
-        int frame_state_4 = 3;
-        npc.spriteDirection = npc.direction;
-        npc.frameCounter++;
-        if(npc.frameCounter < 5)
+        if(++FrameTimer > 8)
         {
-            npc.frame.Y = frame_State_1 * frameHeight;
+            frameCount++;
+            if(frameCount == 4) frameCount = 0;
+            FrameTimer = 0;
         }
-        else if(npc.frameCounter < 15)
-        {
-            npc.frame.Y = frame_state_2 * frameHeight;
-        }
-        else if (npc.frameCounter < 25)
-        {
-            npc.frame.Y = frame_state_3 * frameHeight;
-        }
-        else if (npc.frameCounter < 35)
-        {
-            npc.frame.Y = frame_state_4 * frameHeight;
-            
-        }
-          else if (npc.frameCounter >=40)
-        {
-        npc.frameCounter = 0;
-        }
-       
+        npc.frame.Y = frameHeight * frameCount;
     }
        public override void NPCLoot()
     {
-        if(Main.rand.Next(1,25) > 23)
+        if(Main.rand.Next(25) > 23)
         {
                 Item.NewItem(npc.position,ModContent.ItemType<Items.weapons.SlimeRifle>());   
         }
- 
         Item.NewItem(npc.position,ModContent.ItemType<Items.craftingMaterials.SlimeFeather>(),Main.rand.Next(7,11));
     }
     }

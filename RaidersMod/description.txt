@@ -1,16 +1,21 @@
-0.0.3:
- 1 ammo added
- 2 re sprites
+check forums here = https://forums.terraria.org/index.php?threads/raiders-mod.93814/#post-1998393
+
+0.0.3
+ 1 ammo
+ 2 resprites
  1 weapon
  4 enemies
+
 0.0.2:
- 1 accesory
- 1 axe 
- 2 pickaxes
  1 armor
  1 enemy
  3 weapons
+
+0.0.1.3:
+ description of weapons changed
+
 0.0.1.2:
-buff's,nerf's and description of weapons changed
-0.0.1
- added 3 new weapons
+ buffs & nerfs
+
+0.0.1:
+ 3 weapons
