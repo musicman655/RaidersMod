@@ -62,7 +62,7 @@ namespace RaidersMod.NPCs
 			for (int i = 0; i < numberProjectiles; i++)
 			{
 				Vector2 perturbedSpeed = (Main.player[npc.target].Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.Bullet, 10, 0.2f);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.BulletSnowman, 10, 0.2f);
 			}
                 }
             } 
