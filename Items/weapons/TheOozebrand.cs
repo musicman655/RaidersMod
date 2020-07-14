@@ -9,7 +9,7 @@ namespace RaidersMod.Items.weapons
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("the oozebrand");
+			DisplayName.SetDefault("The Oozebrand");
             Tooltip.SetDefault("The last resort of the living slimy machinery"); 
 		}
 
