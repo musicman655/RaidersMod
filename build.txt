@@ -1,3 +1,4 @@
 displayName = RaidersMod
 author = the fogotten yogurt
-version = 0.0.2
+version = 0.0.4
+homepage = https://discord.com/invite/XN3S4UV
