@@ -10,7 +10,7 @@ namespace RaidersMod.Items.weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gelatinous Remote");
-            Tooltip.SetDefault("ae");//ae
+            Tooltip.SetDefault("a special remote made for controlling a certain type of drone");//ae
         }
         public override void SetDefaults()
         {
