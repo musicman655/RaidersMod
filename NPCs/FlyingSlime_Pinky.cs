@@ -2,11 +2,10 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
-namespace RaidersMod.NPCs.Spiker
+namespace RaidersMod.NPCs
 {
     public class FlyingSlime_Pinky : ModNPC
     {
-        public override string Texture => "RaidersMod/NPCs/FlyingSlime_Pinky";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Flying Pinky");
@@ -47,6 +46,12 @@ namespace RaidersMod.NPCs.Spiker
             {
                 npc.TargetClosest(true);
             }
+            if(!npc.HasValidTarget)
+            {
+                npc.velocity.Y -= 1;
+                npc.timeLeft = 30;
+                npc.noTileCollide = true;
+            }
             npc.velocity = Vector2.Normalize(player.Center - npc.Center) * 4.4f;  
 
             if(Attackcounter >= 360)
@@ -71,11 +76,12 @@ namespace RaidersMod.NPCs.Spiker
     }
        public override void NPCLoot()
     {
-        if(Main.rand.Next(25) > 23)
+        if(Main.rand.Next(3) == 2)
         {
-                Item.NewItem(npc.position,ModContent.ItemType<Items.weapons.SlimeRifle>());   
+            Item.NewItem(npc.position,ModContent.ItemType<Items.weapons.SlimeRifle>());   
         }
-        Item.NewItem(npc.position,ModContent.ItemType<Items.craftingMaterials.SlimeFeather>(),Main.rand.Next(7,11));
+        Item.NewItem(npc.position,ModContent.ItemType<Items.craftingMaterials.SlimeFeather>(),Main.rand.Next(5,9));
+        Item.NewItem(npc.Center,npc.getRect().Size(),ItemID.PinkGel,Main.rand.Next(4));
     }
     }
 }

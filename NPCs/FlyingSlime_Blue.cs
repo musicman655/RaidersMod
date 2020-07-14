@@ -45,6 +45,12 @@ namespace RaidersMod.NPCs
             {
                 npc.TargetClosest(true);
             }
+            if(!npc.HasValidTarget)
+            {
+                npc.velocity.Y -= 1;
+                npc.timeLeft = 30;
+                npc.noTileCollide = true;
+            }
             npc.velocity = Vector2.Normalize(player.Center - npc.Center) * 4.1f;  
 
             if(Attackcounter >= 360)
@@ -69,7 +75,8 @@ namespace RaidersMod.NPCs
     }
     public override void NPCLoot()
     {
-        Item.NewItem(npc.position,ModContent.ItemType<Items.craftingMaterials.SlimeFeather>(),Main.rand.Next(5,10));
+        Item.NewItem(npc.position,ModContent.ItemType<Items.craftingMaterials.SlimeFeather>(),Main.rand.Next(3,7));
+        Item.NewItem(npc.Center,npc.getRect().Size(),ItemID.Gel,Main.rand.Next(10));
     }
     }
 }
