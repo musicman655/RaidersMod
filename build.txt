@@ -2,3 +2,5 @@ displayName = RaidersMod
 author = the fogotten yogurt
 version = 0.0.4
 homepage = https://forums.terraria.org/index.php?threads/raiders-mod.93814/
+hideCode = true 
+hideResources = true
