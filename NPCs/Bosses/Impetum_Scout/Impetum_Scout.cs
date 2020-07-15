@@ -28,17 +28,24 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
             npc.height = 46;
             npc.dontTakeDamageFromHostiles = true;
             npc.friendly = false;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit4;
+            npc.DeathSound = SoundID.NPCDeath14;
             npc.value = Item.buyPrice(0,1,Main.rand.Next(20,50),Main.rand.Next(20,100));
             npc.noGravity = true;
             npc.boss = true;
             npc.noTileCollide = true;
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/MinibossTheme");
+            musicPriority = MusicPriority.BossLow;
+        }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = 14000;
+            npc.damage = 50;
         }
         private float AttackTimer = 0;
         private float ServantSpawnTimer = 0;
         private float DirectionChangeTimer = 0;
-        private int[] ServantNPC = {NPCType<FlyingSlime_Blue>(),NPCType<FlyingSlime_Green>(),NPCType<FlyingSlime_Purple>(),NPCType<Impetum_Soldier>(),NPCType<FlyingSlime_Pinky>()};
+        private int[] ServantNPC = {NPCType<FlyingSlime_Blue>(),NPCType<FlyingSlime_Green>(),NPCType<FlyingSlime_Purple>(),NPCType<Impetum_Soldier>()};
         private int ServantSpawnCount;
         private int position = 1;
         public override void AI()
@@ -49,13 +56,13 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
             {
                 npc.TargetClosest(true);
             }
-            if(npc.HasValidTarget)
+            if(npc.HasValidTarget && player.ZoneSkyHeight)
             {
-            int Yposition = (int)player.Center.Y - 250;
+            Vector2 Yposition = player.Center - new Vector2(0,220);
             if(++ServantSpawnTimer >= 300)
             {
-                ServantSpawnCount = Main.rand.Next(1,3);
-                int NPCToSpawn = Main.rand.Next(50) > 46 ? NPCType<FlyingSlime_Pinky>() : Main.rand.Next(ServantNPC);
+                ServantSpawnCount = Main.rand.Next(2,4);
+                int NPCToSpawn = Main.rand.Next(ServantNPC);
                 for(int i = 0;i<ServantSpawnCount;i++)
                 {
                     NPC.NewNPC((int)npc.Center.X - Main.rand.Next(-100,100),(int)npc.Center.Y - Main.rand.Next(-100,100),NPCToSpawn);
@@ -69,37 +76,45 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                     if(npc.life < npc.lifeMax * 0.5f)
                     {
                         Vector2 ae = Main.player[npc.target].Center - npc.Center;
+                        if(AttackTimer%12 == 0)
+                        {
                         for(int j = 0;j<60;j++)
                         {
                             if(j%6 == 0)
-                                Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,16,2);
+                                Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,24,2);
+                        }
                         }
                     }
                 } else 
                 {
                     Vector2 ae = Main.player[npc.target].Center - npc.Center;
+                    if(AttackTimer%12 == 0)
+                    {
                     for(int j = 0;j<60;j++)
                     {
                         if(j%6 == 0)
-                            Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,16,2);
+                            Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,24,2);
+                    }
                     }
                 }
                 if(AttackTimer >= 600)
                 {
-                    Projectile.NewProjectile(npc.Center,Vector2.Normalize(player.Center - npc.Center) * 8,ProjectileType<Items.projectiles.Rocket>(),10,2);
+                    int RocketCount = Main.rand.Next(2,4);
+                    for(int i = 0;i<RocketCount;i++)
+                    {  
+                        Projectile.NewProjectile(npc.Center,Vector2.Normalize(player.Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(15)) * 8,ProjectileType<Items.projectiles.Rocket>(),30,2);
+                    }
                     AttackTimer = 0;
                 }
             }
-            npc.position.Y = Yposition - ((float)Math.Sin(Main.GlobalTime * 4) * 15);
-            npc.velocity.Y = Vector2.Normalize(new Vector2(0,Yposition) - npc.Center).Y * 6;
+            npc.velocity.Y = Vector2.Normalize(Yposition - npc.Center).Y * 4.2f;
             if(++DirectionChangeTimer >= 240)
             {
                 position = position == 1 ? -1 : 1;
                 DirectionChangeTimer = 0;
             }
             Vector2 Xposition1 = player.position - new Vector2(450 * position,160);
-            npc.velocity.X = Vector2.Normalize(Xposition1 - npc.Center).X * 11;
-
+            npc.velocity.X = Vector2.Normalize(Xposition1 - npc.Center).X * 7.8f;
             } else
             {
                 npc.velocity.Y -= 1;
@@ -120,6 +135,10 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
         }
         public override void NPCLoot()
         {
+            if(!RaidersModWorld.DownedImpetum)
+            {
+                RaidersModWorld.DownedImpetum = true;
+            }
             if(Main.rand.Next(10) == 9)
             {
                 Item.NewItem(npc.position,new Vector2(npc.width,npc.height),ItemType<Items.weapons.Gelatinous_Remote>());
@@ -128,6 +147,11 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
             {
                 Item.NewItem(npc.position,new Vector2(npc.width,npc.height),ItemType<Items.weapons.SlimeRifle>());
             }
+            if(Main.rand.Next(8) < 2)
+            {
+                Item.NewItem(npc.position,npc.getRect().Size(),ItemType<Items.weapons.TheOozebrand>());
+            }
+            Item.NewItem(npc.position,npc.getRect().Size(),ItemID.Gel,Main.rand.Next(1,20));
         }
     }
 }
