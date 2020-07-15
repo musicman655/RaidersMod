@@ -13,7 +13,7 @@ namespace RaidersMod.Items.projectiles
         public override void SetDefaults()
         {
             projectile.height = projectile.width = 20;
-            projectile.timeLeft = 660;
+            projectile.timeLeft = 420;
             projectile.damage = 45;
             projectile.knockBack = 3f;
             projectile.tileCollide = true;
@@ -47,16 +47,12 @@ namespace RaidersMod.Items.projectiles
 						dust.noGravity = true;
 						dust.fadeIn = 2.5f;
 					}
-
-					//Dust 2
 					if (Main.rand.NextFloat() < 0.6f)
 					{
     					dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 78, 78, 203, 0f, 0f, 0, new Color(255, 255, 255), 3.026316f)];
 						dust.noGravity = true;
 						dust.noLight = true;
 					}
-
-					//Dust 3
 					if (Main.rand.NextFloat() < 0.3f)
 					{
 						dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 100, 100, 31, 0f, 0f, 0, new Color(255, 255, 255), 5f)];
