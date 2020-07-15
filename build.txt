@@ -1,4 +1,4 @@
 displayName = RaidersMod
 author = the fogotten yogurt
 version = 0.0.4
-homepage = https://discord.com/invite/XN3S4UV
+homepage = https://forums.terraria.org/index.php?threads/raiders-mod.93814/
