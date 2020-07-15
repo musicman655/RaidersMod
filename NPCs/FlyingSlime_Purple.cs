@@ -13,13 +13,13 @@ namespace RaidersMod.NPCs
         }
         public override void SetDefaults()
         {
-            npc.lifeMax = Main.expertMode ? 180 : 70;
-            npc.defense = Main.expertMode ? 35 : 25;
+            npc.lifeMax = 70;
+            npc.defense = 25;
             npc.knockBackResist = 0.02f;
             npc.width = 20;
             npc.height = 24;
             npc.dontTakeDamageFromHostiles = true;
-            npc.damage = Main.expertMode ? 80 : 55;
+            npc.damage = 55;
             npc.aiStyle = -1;
             npc.friendly = false;
             npc.HitSound = SoundID.NPCHit1;

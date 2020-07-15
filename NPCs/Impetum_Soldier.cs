@@ -14,8 +14,6 @@ namespace RaidersMod.NPCs
             DisplayName.SetDefault("Impetum Soldier");
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.BlueSlime];
         }
-
-
         public override void SetDefaults()
         {
             npc.width = 54;
@@ -32,64 +30,47 @@ namespace RaidersMod.NPCs
             aiType = NPCID.BlueSlime;
             animationType = NPCID.BlueSlime;
         }
-            private int MaxAttackTimer = 0;
+        private int MaxAttackTimer = 0;
+        private int Bruh = Main.rand.Next(3);
+        private string GunTex;
         public override void AI()
         {
             npc.ai[0]++;
-            if(npc.ai[0] == 1)
-            {
-                npc.ai[1] = Main.rand.Next(0, 4);
-                switch (npc.ai[1])
-                {
-                    case 0 :
-                    MaxAttackTimer = 8;
-                    break;
-                    case 1 :
-                    MaxAttackTimer = 45;
-                    break;
-                    case 2 : 
-                    MaxAttackTimer = 60;
-                    break;
-                }
+            switch (Bruh)
+            { 
+                case 0 :
+                MaxAttackTimer = 14;
+                GunTex = "NPCs/SlimeGun1";
+                break;
+                case 1 :
+                MaxAttackTimer = 40;
+                GunTex = "NPCs/SlimeGun2";
+                break;
+                case 2 : 
+                MaxAttackTimer = 70;
+                GunTex = "NPCs/SlimeGun3";
+                break;
             }
-            if(npc.ai[0] % 180 == 0)
+            if(npc.ai[0] % MaxAttackTimer == 0)
             {
-                if(npc.ai[1] != 2)
-                    Projectile.NewProjectile(npc.Center, Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 10, ProjectileID.Bullet, 10, 0.2f);
+                if(Bruh != 2)
+                    Projectile.NewProjectile(npc.Center, Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 10, ProjectileID.BulletSnowman, 6, 0.2f);
                 else
                 {
                     int numberProjectiles = 4 + Main.rand.Next(2);
-			for (int i = 0; i < numberProjectiles; i++)
-			{
-				Vector2 perturbedSpeed = (Main.player[npc.target].Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(30)); // 30 degree spread.
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.BulletSnowman, 10, 0.2f);
-			}
+			        for (int i = 0; i < numberProjectiles; i++)
+			        {
+				        Vector2 perturbedSpeed = Vector2.Normalize(Main.player[npc.target].Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(30)) * 6; // 30 degree spread.
+				        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.BulletSnowman, 10, 0.2f);
+			        }
                 }
             } 
         }
         
         public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
         {
-            Texture2D texture = mod.GetTexture("NPCs/SlimeGun1");
-            switch (npc.ai[1])
-            {
-                case 0:
-                    {
-                        texture = mod.GetTexture("NPCs/SlimeGun1");
-                        break;
-                    }
-                case 1:
-                    {
-                        texture = mod.GetTexture("NPCs/SlimeGun2");
-                        break;
-                    }
-                case 2:
-                    {
-                        texture = mod.GetTexture("NPCs/SlimeGun3");
-                        break;
-                    }
-            }
             float getRotation = (Main.player[npc.target].Center - npc.Center).ToRotation();
+            Texture2D texture = mod.GetTexture(GunTex);
             if(Math.Abs(getRotation) < Math.PI/2)
             {
                 npc.ai[3] = -1;
