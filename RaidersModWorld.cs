@@ -7,10 +7,33 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Terraria.ModLoader.IO;
 namespace RaidersMod
 {
     public class RaidersModWorld : ModWorld
     {
+        public static bool DownedImpetum = false;
+        public override void Initialize()
+        {
+            DownedImpetum = false;
+        }
+        public override TagCompound Save()
+        {
+            var downed = new List<string>();
+            if(DownedImpetum)
+            {
+                downed.Add("ImpetumScout");
+            }
+            return new TagCompound
+            {
+                ["downed"] = downed
+            };
+        }
+        public override void Load(TagCompound tag)
+        {
+            var downed = tag.GetList<string>("downed");
+            DownedImpetum = downed.Contains("ImpetumScout");
+        }
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
