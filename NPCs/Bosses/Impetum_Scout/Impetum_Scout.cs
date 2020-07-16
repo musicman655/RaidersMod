@@ -3,8 +3,6 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using static Terraria.ModLoader.ModContent;
-using System.IO;
-using System;
 namespace RaidersMod.NPCs.Bosses.Impetum_Scout
 {
     [AutoloadBossHead]
@@ -18,7 +16,6 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
         }
         public override void SetDefaults()
         {
-            
             npc.aiStyle = -1;
             npc.lifeMax = 8500;
             npc.damage = 30;
@@ -76,12 +73,12 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                     if(npc.life < npc.lifeMax * 0.5f)
                     {
                         Vector2 ae = Main.player[npc.target].Center - npc.Center;
-                        if(AttackTimer%12 == 0)
+                        if(AttackTimer%15 == 0)
                         {
                         for(int j = 0;j<60;j++)
                         {
                             if(j%6 == 0)
-                                Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,24,2);
+                                Projectile.NewProjectile(npc.Center,ae * 8,ProjectileID.BulletSnowman,20,2);
                         }
                         }
                     }
@@ -107,6 +104,7 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                     AttackTimer = 0;
                 }
             }
+            npc.rotation = npc.velocity.ToRotation() / 20;
             npc.velocity.Y = Vector2.Normalize(Yposition - npc.Center).Y * 4.2f;
             if(++DirectionChangeTimer >= 240)
             {
