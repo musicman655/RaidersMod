@@ -13,8 +13,8 @@ namespace RaidersMod.Items.projectiles
         public override void SetDefaults()
         {
             projectile.height = projectile.width = 20;
-            projectile.timeLeft = 420;
-            projectile.damage = 45;
+            projectile.timeLeft = 360;
+            projectile.damage = 50;
             projectile.knockBack = 3f;
             projectile.tileCollide = true;
             projectile.hostile = true;
@@ -24,7 +24,7 @@ namespace RaidersMod.Items.projectiles
         public override void AI()
         {
             Player player = Main.player[Main.myPlayer];
-            projectile.velocity = Vector2.Normalize(player.Center - projectile.Center) * 8; 
+            projectile.velocity = Vector2.Normalize(player.Center - projectile.Center) * 10; 
             projectile.rotation = projectile.velocity.ToRotation();
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
@@ -33,7 +33,7 @@ namespace RaidersMod.Items.projectiles
         }
         public override void PostAI()
         {
-            Dust.NewDust(projectile.Center,15,15,DustID.FlameBurst,-projectile.velocity.X,0,0,default(Color),1.2f);
+            Dust.NewDust(projectile.Center,15,15,DustID.Fire,-projectile.velocity.X,0,125,Color.White,1.3f);
         }
         public override void Kill(int timeLeft)
         {
