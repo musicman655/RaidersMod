@@ -88,7 +88,7 @@ namespace RaidersMod.Items.projectiles.Minions
                     if (npc.CanBeChasedBy()) {
 						bool lineOfSight = Collision.CanHitLine(projectile.position, projectile.width, projectile.height, npc.position, npc.width, npc.height);
 
-						if (npc.active && !npc.friendly && Vector2.Distance(projectile.Center,npc.Center) < 160 && lineOfSight) {
+						if (npc.active && !npc.friendly && Vector2.Distance(projectile.Center,npc.Center) < 350 && lineOfSight) {
 							distanceFromTarget = Vector2.Distance(projectile.Center,npc.Center);
 							targetCenter = npc.Center;
 							foundTarget = true;
@@ -102,15 +102,12 @@ namespace RaidersMod.Items.projectiles.Minions
             float speed = 8f;
 			float inertia = 20f;
 			if (foundTarget) {
-				projectile.velocity *= 0.5f;
-				if (distanceFromTarget < 500f) {
-				projectile.spriteDirection = projectile.direction;
+				if (distanceFromTarget < 350) {
 				NPC npc = Main.npc[npcAE];
 				Vector2 targetPos = Vector2.Normalize(npc.Center - projectile.Center) * 10;
 				projectile.spriteDirection = npc.position.X > projectile.position.X ? 1 : -1;
-                Vector2 ShootPos = player.direction == -1 ? projectile.BottomLeft : projectile.BottomRight;
                 if(++AttackTimer >= 6){
-                Projectile.NewProjectile(ShootPos,targetPos,ProjectileID.Bullet,10,1,projectile.whoAmI);
+                Projectile.NewProjectile(projectile.Center,targetPos,ProjectileID.Bullet,18,1,projectile.whoAmI);
                 AttackTimer = 0;
                 }
 				}
@@ -143,8 +140,6 @@ namespace RaidersMod.Items.projectiles.Minions
 					projectile.velocity.Y = -0.05f;
 				}
 			}
-			
-
             if(++projectile.frameCounter > 3)
             {
                 projectile.frame++;
