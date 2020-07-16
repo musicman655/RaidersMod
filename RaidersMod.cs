@@ -31,7 +31,7 @@ namespace RaidersMod
 				ModContent.ItemType<Items.SummoningItems.Impetum_Transmitter>(),
 				new List<int> {},
 				new List<int> {ModContent.ItemType<Items.weapons.Gelatinous_Remote>(),ModContent.ItemType<Items.weapons.TheOozebrand>(),ModContent.ItemType<Items.weapons.SlimeRifle>()},
-				"Use a Slimed Engine in Sky");
+				"Use a Impetum Transmitter in Sky");
 			}
 		}
 	}
