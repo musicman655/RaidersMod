@@ -24,7 +24,7 @@ namespace RaidersMod.Items.projectiles
         public override void AI()
         {
             Player player = Main.player[Main.myPlayer];
-            projectile.velocity = Vector2.Normalize(player.Center - projectile.Center) * 10; 
+            projectile.velocity = Vector2.Normalize(player.Center - projectile.Center) * 8; 
             projectile.rotation = projectile.velocity.ToRotation();
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
