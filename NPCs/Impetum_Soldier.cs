@@ -31,7 +31,7 @@ namespace RaidersMod.NPCs
             animationType = NPCID.BlueSlime;
         }
         private int MaxAttackTimer = 0;
-        private int Bruh = Main.rand.Next(3);
+        private int Bruh = Main.rand.Next(10) > 8 ? 2 : Main.rand.Next(2);
         private string GunTex;
         public override void AI()
         {
@@ -39,11 +39,11 @@ namespace RaidersMod.NPCs
             switch (Bruh)
             { 
                 case 0 :
-                MaxAttackTimer = 14;
+                MaxAttackTimer = 15;
                 GunTex = "NPCs/SlimeGun1";
                 break;
                 case 1 :
-                MaxAttackTimer = 40;
+                MaxAttackTimer = 50;
                 GunTex = "NPCs/SlimeGun2";
                 break;
                 case 2 : 
@@ -53,15 +53,17 @@ namespace RaidersMod.NPCs
             }
             if(npc.ai[0] % MaxAttackTimer == 0)
             {
-                if(Bruh != 2)
-                    Projectile.NewProjectile(npc.Center, Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 10, ProjectileID.BulletSnowman, 6, 0.2f);
+                if(Bruh == 0)
+                    Projectile.NewProjectile(npc.Center, Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 8, ProjectileID.BulletSnowman, 10, 0.2f);
+                else if(Bruh == 1)
+                    Projectile.NewProjectile(npc.Center, Vector2.Normalize(Main.player[npc.target].Center - npc.Center) * 10, ProjectileID.BulletSnowman, 25, 0.2f);
                 else
                 {
                     int numberProjectiles = 4 + Main.rand.Next(2);
 			        for (int i = 0; i < numberProjectiles; i++)
 			        {
-				        Vector2 perturbedSpeed = Vector2.Normalize(Main.player[npc.target].Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(30)) * 6; // 30 degree spread.
-				        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.BulletSnowman, 10, 0.2f);
+				        Vector2 perturbedSpeed = Vector2.Normalize(Main.player[npc.target].Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(30)) * 5; // 30 degree spread.
+				        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, perturbedSpeed.X, perturbedSpeed.Y,ProjectileID.BulletSnowman, 12, 0.2f);
 			        }
                 }
             } 
