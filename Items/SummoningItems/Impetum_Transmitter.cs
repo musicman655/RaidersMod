@@ -21,10 +21,13 @@ namespace RaidersMod.Items.SummoningItems
 			item.useAnimation = 30;
 			item.useTime = 30;
 			item.useStyle = ItemUseStyleID.HoldingUp;
+            item.UseSound = SoundID.Item1;
+            item.rare = 5;
         }
+        private bool IsItemUsable = true;
         public override bool CanUseItem(Player player)
         {
-            return Main.hardMode && player.ZoneSkyHeight;
+            return player.ZoneSkyHeight && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Impetum_Scout.Impetum_Scout>());
         }
         public override bool UseItem(Player player)
         {
