@@ -96,11 +96,7 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                 }
                 if(AttackTimer >= 600)
                 {
-                    int RocketCount = Main.rand.Next(2,4);
-                    for(int i = 0;i<RocketCount;i++)
-                    {  
-                        Projectile.NewProjectile(npc.Center,Vector2.Normalize(player.Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(15)) * 8,ProjectileType<Items.projectiles.Rocket>(),30,2);
-                    }
+                    Projectile.NewProjectile(npc.Center,Vector2.Normalize(player.Center - npc.Center).RotatedByRandom(MathHelper.ToRadians(15)) * 8,ProjectileType<Items.projectiles.Rocket>(),30,2);
                     AttackTimer = 0;
                 }
             }
