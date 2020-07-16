@@ -78,7 +78,7 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                         for(int j = 0;j<60;j++)
                         {
                             if(j%6 == 0)
-                                Projectile.NewProjectile(npc.Center,ae * 8,ProjectileID.BulletSnowman,20,2);
+                                Projectile.NewProjectile(npc.Center,ae * 8,ProjectileID.BulletSnowman,16,2);
                         }
                         }
                     }
@@ -90,7 +90,7 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
                     for(int j = 0;j<60;j++)
                     {
                         if(j%6 == 0)
-                            Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,24,2);
+                            Projectile.NewProjectile(npc.Center,ae * 10,ProjectileID.BulletSnowman,20,2);
                     }
                     }
                 }
