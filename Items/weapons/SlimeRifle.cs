@@ -20,6 +20,7 @@ namespace RaidersMod.Items.weapons
             item.maxStack = 1;
             item.shootSpeed = 15;
             item.value = Item.buyPrice(0,1,20,0);
+            item.rare = 4;
             item.useTime = 4;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.useAnimation = 20;
