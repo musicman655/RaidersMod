@@ -24,7 +24,7 @@ namespace RaidersMod.Items.weapons
             item.useStyle = 5;        //this is how the item is holded
             item.noMelee = true;
             item.knockBack = 2;        
-            item.value = 1000;
+            item.value = 000007;
             item.rare = 2;
             item.mana = 5;             //mana use
             item.UseSound = SoundID.Item21;            //this is the sound when you use the item
