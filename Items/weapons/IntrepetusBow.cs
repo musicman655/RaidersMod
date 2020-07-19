@@ -20,7 +20,7 @@ namespace RaidersMod.Items.weapons
 			item.useAnimation = 20;
 			item.useStyle = 5;
 			item.knockBack = 4;
-			item.value = 10000;
+			item.value = 000050;
 			item.rare = 8;
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
