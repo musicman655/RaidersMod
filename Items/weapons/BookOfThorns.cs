@@ -25,7 +25,7 @@ namespace RaidersMod.Items.weapons
             item.noMelee = true;
             item.knockBack = 2;        
             item.value = 1000;
-            item.rare = 6;
+            item.rare = 2;
             item.mana = 5;             //mana use
             item.UseSound = SoundID.Item21;            //this is the sound when you use the item
             item.autoReuse = true;
