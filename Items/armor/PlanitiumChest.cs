@@ -15,7 +15,7 @@ namespace RaidersMod.Items.armor
         public override void SetDefaults()
         {
             item.defense = 4;
-            item.rare = 1;
+            item.rare = 2;
             item.Size = new Microsoft.Xna.Framework.Vector2(24);
             item.value = Item.buyPrice(0,0,20,0);
         }
