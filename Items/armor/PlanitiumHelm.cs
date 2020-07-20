@@ -28,7 +28,7 @@ namespace RaidersMod.Items.armor
         {
             player.buffImmune[BuffID.Poisoned] = true;
             player.statDefense += 3;
-            player.setBonus = "Immune to Poisened\n        +3 Defense";
+            player.setBonus = "Immune to Poison\n        +3 Defense";
         }
         public override void AddRecipes()
         {
