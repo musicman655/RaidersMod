@@ -9,13 +9,12 @@ namespace RaidersMod.Mounts
         public override void SetDefaults()
         {
 			mountData.buff = ModContent.BuffType<Buffs.HelicopterMountBuff>();
-            mountData.spawnDust = DustID.Fire;
 			mountData.fallDamage = 0.5f;
 			mountData.acceleration = 0.19f;
 			mountData.jumpSpeed = 6f;
-            mountData.dashSpeed = 8;
+            mountData.dashSpeed = 12;
             mountData.heightBoost = 5;
-            mountData.runSpeed = 4;
+            mountData.runSpeed = 12;
             mountData.jumpHeight = 12;
             mountData.blockExtraJumps = true;
             mountData.totalFrames = 3;
@@ -31,22 +30,21 @@ namespace RaidersMod.Mounts
             mountData.idleFrameCount = 3;
             mountData.idleFrameDelay = 5;
             mountData.idleFrameStart = 0;
-            mountData.standingFrameCount = 0;
-            mountData.standingFrameDelay = 0;
+            mountData.standingFrameCount = 3;
+            mountData.standingFrameDelay = 5;
             mountData.standingFrameStart = 0;
             mountData.inAirFrameCount = 3;
             mountData.inAirFrameDelay = 5;
             mountData.inAirFrameStart = 0;
             mountData.runningFrameCount = 3;
-            mountData.runningFrameDelay = 0;
+            mountData.runningFrameDelay = 5;
             mountData.runningFrameStart = 0;
             mountData.swimFrameCount = 3;
             mountData.swimFrameDelay = 0;
             mountData.swimFrameStart = 0;
             mountData.dashingFrameCount = 3;
-            mountData.dashingFrameDelay = 0;
+            mountData.dashingFrameDelay = 5;
             mountData.dashingFrameStart = 0;
-            mountData.dashSpeed = 12;
             mountData.xOffset = -8;
             mountData.yOffset = 1;
             mountData.playerYOffsets = array;
@@ -60,6 +58,10 @@ namespace RaidersMod.Mounts
 
 			mountData.textureWidth = mountData.backTexture.Width + 20;
 			mountData.textureHeight = mountData.backTexture.Height;
+        }
+        public override void UpdateEffects(Player player)
+        {
+            RaidersModPlayer.HelicopterMount = true;
         }
         int e = 0;
         public override void UseAbility(Player player, Vector2 mousePosition, bool toggleOn)
