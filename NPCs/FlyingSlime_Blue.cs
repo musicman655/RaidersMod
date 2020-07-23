@@ -27,6 +27,7 @@ namespace RaidersMod.NPCs
             npc.DeathSound = SoundID.NPCDeath1;
             npc.value = 100f;
             npc.noGravity = true;
+            npc.noTileCollide = true;
         }
           public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
@@ -45,21 +46,23 @@ namespace RaidersMod.NPCs
             {
                 npc.TargetClosest(true);
             }
-            if(!npc.HasValidTarget)
+            if(!npc.HasValidTarget || !player.ZoneSkyHeight)
             {
-                npc.velocity.Y -= 1;
+                npc.velocity.Y -= 0.3f;
                 npc.timeLeft = 30;
                 npc.noTileCollide = true;
-            }
-            npc.velocity = Vector2.Normalize(player.Center - npc.Center) * 4.1f;  
-
-            if(Attackcounter >= 360)
+            } else
             {
-                Vector2 direction = Vector2.Normalize(player.Center - npc.Center) * 5f;
-                Projectile.NewProjectile(npc.Center,direction * 2,ProjectileID.HarpyFeather,23,1);
-                Attackcounter = 0f;
+                npc.velocity = Vector2.Normalize(player.Center - npc.Center) * 4.1f;  
+
+                if(Attackcounter >= 360)
+                {
+                    Vector2 direction = Vector2.Normalize(player.Center - npc.Center) * 5f;
+                    Projectile.NewProjectile(npc.Center,direction * 2,ProjectileID.HarpyFeather,23,1);
+                    Attackcounter = 0f;
+                }
+                npc.spriteDirection = npc.direction;
             }
-            npc.spriteDirection = npc.direction;
         }
         private int FrameTimer;
         private int frameCount;
