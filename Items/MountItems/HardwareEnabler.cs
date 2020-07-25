@@ -20,7 +20,7 @@ namespace RaidersMod.Items.MountItems
 			item.rare = ItemRarityID.LightRed;
 			item.UseSound = SoundID.Item79;
 			item.noMelee = true;
-			item.mountType = ModContent.MountType<Mounts.Hardware Enabler>();
+			item.mountType = ModContent.MountType<Mounts.HelicopterMount>();
         }
     }
 }
