@@ -3,11 +3,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 namespace RaidersMod.Items.MountItems
 {
-    public class HelicopterMountItem : ModItem
+    public class HardwareEnabler : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Helicopter Mount");
+            DisplayName.SetDefault("Hardware Enabler");
         }
         public override void SetDefaults()
         {
@@ -20,7 +20,7 @@ namespace RaidersMod.Items.MountItems
 			item.rare = ItemRarityID.LightRed;
 			item.UseSound = SoundID.Item79;
 			item.noMelee = true;
-			item.mountType = ModContent.MountType<Mounts.HelicopterMount>();
+			item.mountType = ModContent.MountType<Mounts.Hardware Enabler>();
         }
     }
 }
