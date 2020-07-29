@@ -54,18 +54,6 @@ namespace RaidersMod.Items.projectiles.Minions
 				projectile.velocity *= 0.1f;
 				projectile.netUpdate = true;
 			}
-            float overlapVelocity = 0.04f;
-			for (int i = 0; i < Main.maxProjectiles; i++) {
-				// Fix overlap with other minions
-				Projectile other = Main.projectile[i];
-				if (i != projectile.whoAmI && other.active && other.owner == projectile.owner && Math.Abs(projectile.position.X - other.position.X) + Math.Abs(projectile.position.Y - other.position.Y) < projectile.width) {
-					if (projectile.position.X < other.position.X) projectile.velocity.X -= overlapVelocity;
-					else projectile.velocity.X += overlapVelocity;
-
-					if (projectile.position.Y < other.position.Y) projectile.velocity.Y -= overlapVelocity;
-					else projectile.velocity.Y += overlapVelocity;
-				}
-			}
 
             float distanceFromTarget = 700f;
 			Vector2 targetCenter = projectile.position;
