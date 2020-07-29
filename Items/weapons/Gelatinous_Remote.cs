@@ -10,7 +10,7 @@ namespace RaidersMod.Items.weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gelatinous Remote");
-            Tooltip.SetDefault("a special remote made for controlling a certain type of drone");//ae
+            Tooltip.SetDefault("ae");//ae
         }
         public override void SetDefaults()
         {
@@ -28,6 +28,10 @@ namespace RaidersMod.Items.weapons
 
             item.buffType = ModContent.BuffType<Buffs.Gelatinous_Buff>();
             item.shoot = ModContent.ProjectileType<Gelatinous_Drone>();
+        }
+        public override bool CanUseItem(Player player)
+        {
+            return player.ownedProjectileCounts[ModContent.ProjectileType<Gelatinous_Drone>()] < 1;
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
