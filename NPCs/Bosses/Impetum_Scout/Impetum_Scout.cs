@@ -145,6 +145,10 @@ namespace RaidersMod.NPCs.Bosses.Impetum_Scout
             {
                 Item.NewItem(npc.position,npc.getRect().Size(),ItemType<Items.weapons.TheOozebrand>());
             }
+             if(Main.rand.Next(6) < 2)
+            {
+                Item.NewItem(npc.position,npc.getRect().Size(),ItemType<Items.MountItems.HardwareEnabler>());
+            }
             Item.NewItem(npc.position,npc.getRect().Size(),ItemID.Gel,Main.rand.Next(1,20));
         }
     }
