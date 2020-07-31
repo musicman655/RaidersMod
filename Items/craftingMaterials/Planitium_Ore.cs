@@ -8,7 +8,7 @@ namespace RaidersMod.Items.craftingMaterials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Plantium");
-            Tooltip.SetDefault("Ducc"); //yogurt add tooltip or keep it as ducc
+            Tooltip.SetDefault("used to craft a material from the jungle"); 
         }
         public override void SetDefaults()
         {
