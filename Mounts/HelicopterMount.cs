@@ -8,10 +8,10 @@ namespace RaidersMod.Mounts
     {
         public override void SetDefaults()
         {
-			mountData.buff = ModContent.BuffType<Buffs.HelicopterMountBuff>();
-			mountData.fallDamage = 0.5f;
-			mountData.acceleration = 0.19f;
-			mountData.jumpSpeed = 6f;
+		mountData.buff = ModContent.BuffType<Buffs.HelicopterMountBuff>();
+		mountData.fallDamage = 0.5f;
+		mountData.acceleration = 0.19f;
+		mountData.jumpSpeed = 6f;
             mountData.dashSpeed = 12;
             mountData.heightBoost = 5;
             mountData.runSpeed = 12;
@@ -71,7 +71,7 @@ namespace RaidersMod.Mounts
                 if(++e % 7 == 0)
                 {
                     Vector2 shootPos = Vector2.Normalize(Main.MouseWorld - player.Center) * 8;
-                    Projectile.NewProjectile(player.Center,shootPos,ProjectileID.Bullet,12,1f);
+                    Projectile.NewProjectile(player.Center,shootPos,ProjectileID.Bullet,16,1f,player.whoAmI);
                 }
             }
         }
