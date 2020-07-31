@@ -1,4 +1,0 @@
-displayName = Raiders Mod
-author = yogu the yogu 
-version = 0.0.4
-homepage = https://discord.gg/n5jfzBm
