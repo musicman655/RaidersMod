@@ -8,7 +8,7 @@ namespace RaidersMod.Items.weapons
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Frosty Breath");
-			Tooltip.SetDefault("a cold bow that can be usefull for fights");
+			Tooltip.SetDefault("a cold bow that can be useful for fights");
 		}
 		public override void SetDefaults()
 		{
