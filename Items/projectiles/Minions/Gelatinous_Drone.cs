@@ -22,7 +22,7 @@ namespace RaidersMod.Items.projectiles.Minions
         public override void SetDefaults()
         {
             projectile.width = 18;
-			projectile.height = 28;
+		projectile.height = 28;
             projectile.friendly = true;
             projectile.minion = true;
             projectile.minionSlots = 1f;
@@ -95,7 +95,7 @@ namespace RaidersMod.Items.projectiles.Minions
 				Vector2 targetPos = Vector2.Normalize(npc.Center - projectile.Center) * 10;
 				projectile.spriteDirection = npc.position.X > projectile.position.X ? 1 : -1;
                 if(++AttackTimer >= 6){
-                Projectile.NewProjectile(projectile.Center,targetPos,ProjectileID.Bullet,18,1,projectile.whoAmI);
+                Projectile.NewProjectile(projectile.Center,targetPos,ProjectileID.Bullet,30,1.5f,projectile.whoAmI);
                 AttackTimer = 0;
                 }
 				}
