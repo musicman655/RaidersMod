@@ -8,7 +8,7 @@ namespace RaidersMod.Items.weapons
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Intrepetus Bow");
-			Tooltip.SetDefault("A mythril bow that shoots fast");
+			Tooltip.SetDefault("Powerful weapon from the souls of the mechanical bosses");
 		}
 		public override void SetDefaults()
 		{
