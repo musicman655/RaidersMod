@@ -10,7 +10,7 @@ namespace RaidersMod.Items.weapons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gelatinous Remote");
-            Tooltip.SetDefault("ae");//ae
+            Tooltip.SetDefault("Summons a small slime machinery to protect you");//ae
         }
         public override void SetDefaults()
         {
