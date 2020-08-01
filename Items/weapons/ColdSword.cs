@@ -8,7 +8,7 @@ namespace RaidersMod.Items.weapons
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Cold Sword"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
-			Tooltip.SetDefault("a cold sword that shoots ice bolts");
+			Tooltip.SetDefault("A frigid blade that shoots ice bolts");
 		}
 		public override void SetDefaults()
 		{
