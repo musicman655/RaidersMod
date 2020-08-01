@@ -7,8 +7,7 @@ namespace RaidersMod.Items.weapons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("SlimeRifle");
-            Tooltip.SetDefault(""); //Yogurt insert the tooltip here cuz idk what to put
+            DisplayName.SetDefault("Slime Rifle");
         }
         public override void SetDefaults()
         {
@@ -28,7 +27,7 @@ namespace RaidersMod.Items.weapons
             item.UseSound = SoundID.Item1;
             item.width = 25;
             item.height = 14;
-            item.scale *= 1.5f;
+            item.scale *= 1.4f;
             item.useAmmo = AmmoID.Gel;
             item.shoot = 10;
         }
@@ -36,7 +35,7 @@ namespace RaidersMod.Items.weapons
         {
             if(!target.friendly)
             {
-                target.AddBuff(BuffID.Slow,600,false);
+                target.AddBuff(BuffID.Slow,300,false);
             }
         }
     }
