@@ -11,12 +11,13 @@ namespace RaidersMod.Items.weapons
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("this book shoots stings... ouch");
+            DisplayName.SetDefault("Book of Thorns");
+            Tooltip.SetDefault("This book shoots stings... ouch");
         }    
         public override void SetDefaults()
         {         
             item.damage = 14;                        
-            item.magic = true;                     //this make the item do magic damage
+            item.magic = true;//this make the item do magic damage
             item.width = 24;
             item.height = 28;
             item.useTime = 30;
@@ -24,7 +25,7 @@ namespace RaidersMod.Items.weapons
             item.useStyle = 5;        //this is how the item is holded
             item.noMelee = true;
             item.knockBack = 2;        
-            item.value = 000007;
+            item.value = 10000;
             item.rare = 2;
             item.mana = 5;             //mana use
             item.UseSound = SoundID.Item21;            //this is the sound when you use the item
