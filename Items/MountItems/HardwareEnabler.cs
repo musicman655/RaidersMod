@@ -8,6 +8,7 @@ namespace RaidersMod.Items.MountItems
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Hardware Enabler");
+	    Tooltip.SetDefault("Left click to shoot bullets");
         }
         public override void SetDefaults()
         {
